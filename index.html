@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Try-On Fashion Store</title>
+    <meta
+      name="description"
+      content="AI-powered clothing store: upload your photo, try outfits virtually, compare looks, and shop."
+    />
+    <script>
+      // Avoid flash of wrong theme
+      try {
+        const theme = localStorage.getItem("aitryon_theme") || "light";
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      } catch {}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            boxShadow: {
+              soft: "0 12px 40px rgba(15, 23, 42, 0.10)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
